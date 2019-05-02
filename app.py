@@ -14,7 +14,8 @@ tokens = json.loads(data)
 
 
 def get_url():
-    payload = {'api_key': str(tokens('giphy_token')), 'tag': 'owl'}
+    giphy_token = str(tokens['giphy_token'])
+    payload = {'api_key': giphy_token, 'tag': 'owl'}
     contents = requests.get('https://api.giphy.com/v1/gifs/random', params=payload).json()
     image_url = contents['data']['image_url']
     return image_url
@@ -30,7 +31,8 @@ def error(bot, update, error):
 
 
 def main():
-    updater = Updater(str(tokens['telegram_token']))
+    telegram_token = str(tokens['telegram_token'])
+    updater = Updater(telegram_token)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('owl', owl))
     dp.add_handler(MessageHandler(Filters.regex('(?i)(совун*)'), owl))
