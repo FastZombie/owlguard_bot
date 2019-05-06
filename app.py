@@ -37,7 +37,7 @@ def main():
     updater = Updater(telegram_token)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('owl', owl))
-    dp.add_handler(MessageHandler(Filters.regex('(?i)(совун*)'), owl))
+    dp.add_handler(MessageHandler(Filters.regex('(?i)(совун*)|\U0001F989'), owl))
     dp.add_error_handler(error)
     updater.start_polling()
     updater.idle()
