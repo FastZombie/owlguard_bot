@@ -22,7 +22,9 @@ def get_url():
 
 
 def owl(bot, update):
-    bot.sendAnimation(chat_id=update.message.chat_id, animation=get_url())
+    bot.sendAnimation(chat_id=update.message.chat_id,
+                      animation=get_url(),
+                      reply_to_message_id=update.message.message_id)
 
 
 def error(bot, update, error):
