@@ -47,8 +47,8 @@ def main():
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('owl', owl))
     dp.add_handler(MessageHandler(Filters.regex('(?i)(совун*)|\U0001F989'), owl))
+    dp.add_handler(MessageHandler(Filters.user(user_id=53303105) & Filters.regex('(?i)(жопа*)|(?i)(срака*)'), jopa))
     dp.add_handler(MessageHandler(Filters.regex('(?i)(жопа*)|(?i)(срака*)'), jopa_someone))
-    dp.add_handler(MessageHandler(Filters.user(user_id=837380) & Filters.regex('(?i)(жопа*)|(?i)(срака*)'), jopa))
     dp.add_error_handler(error)
     updater.start_polling()
     updater.idle()
