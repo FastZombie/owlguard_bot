@@ -31,15 +31,15 @@ def error(bot, update, error):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, error)
 
-def jopa_someone(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id,
-                    text="какой же Коля гомосек",
-                    reply_to_message_id=update.message.message_id)
+# def jopa_someone(bot, update):
+#     bot.sendMessage(chat_id=update.message.chat_id,
+#                     text="какой же Коля гомосек",
+#                     reply_to_message_id=update.message.message_id)
 
-def jopa(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id,
-                    text="какой же ты гомосек",
-                    reply_to_message_id=update.message.message_id)
+# def jopa(bot, update):
+#     bot.sendMessage(chat_id=update.message.chat_id,
+#                     text="какой же ты гомосек",
+#                     reply_to_message_id=update.message.message_id)
 
 def main():
     telegram_token = str(tokens['telegram_token'])
@@ -47,8 +47,8 @@ def main():
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('owl', owl))
     dp.add_handler(MessageHandler(Filters.regex('(?i)(совун*)|\U0001F989'), owl))
-    dp.add_handler(MessageHandler(Filters.user(user_id=53303105) & Filters.regex('(?i)(жопа*)|(?i)(срака*)'), jopa))
-    dp.add_handler(MessageHandler(Filters.regex('(?i)(жопа*)|(?i)(срака*)'), jopa_someone))
+    # dp.add_handler(MessageHandler(Filters.user(user_id=53303105) & Filters.regex('(?i)(жопа*)|(?i)(срака*)'), jopa))
+    # dp.add_handler(MessageHandler(Filters.regex('(?i)(жопа*)|(?i)(срака*)'), jopa_someone))
     dp.add_error_handler(error)
     updater.start_polling()
     updater.idle()
